@@ -23,13 +23,14 @@
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('config');
+//const config = require('config');
 const constant = require('./constant');
 const responseGenerator = require('./response-generator');
 const error = require('./error');
+const jwtSecret = "myOwnSecret";
 
 // TODO Take this from environment variable
-const jwtSecret = config.get('authJWT.secret');
+//const jwtSecret = config.get('authJWT.secret');
 
 /**
  * Hash the given password. Before passing the password to this function
@@ -170,7 +171,7 @@ function protectResetPasswordRoute(req, res, next) {
  *
  */
 function protectTokenVerify(req, res, next) {
-  const token = req.header(constant.TOKEN_NAME);
+  const token = req.header('x-auth-token');
   // Token exist in request
   if (token) {
     try {
@@ -204,7 +205,7 @@ function protectTokenVerify(req, res, next) {
  */
 
 function protectEmployeeMgmtRoute(req, res, next) {
-  const token = req.header(constant.TOKEN_NAME);
+  const token = req.header('x-auth-token');
   // Token exist in request
   if (token) {
     try {
@@ -229,8 +230,8 @@ function protectEmployeeMgmtRoute(req, res, next) {
       // add the invalid tokens into the blacklist and here we check whether the token
       // is invalid here
       // console.log(req.user);
-      // Invalid Role hence Not authorized
-      if (req.user[constant.permissionKey.EMPLOYEE_MANAGEMENT] !== 1 || req.user[constant.tokenType.KEY] !== constant.tokenType.value.EMPLOYEE) {
+      // Invalid Role hence Not authorizedEMPLOYEE
+      if (req.user.role!=='employee') {
         return res.status(403).send(responseGenerator.authError(error.errList.authError.ERR_PR_PERMISSION_MISMATCH));
       }
       next();

@@ -3,7 +3,7 @@ const pool = mysql.createPool({
     connectionLimit: 10,
     host: "localhost",
     user: "root",
-    password: "kusumanjali2110",
+    password: "kusu2110",
     database: "new",
     dateStrings: true,
   });

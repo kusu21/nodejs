@@ -74,6 +74,49 @@ const errList = {
     }
     
   },
+  dbError: {
+    ERR_DELETE_GROSS_DOESNOT_EXIST: {
+      code : "80001",
+      message : "GROSS is been deleted before or does not exist, please check the list to proceed",
+      internalDescription: "When the user tried to delete an gross there was no error and delete was unsuccessful this may be because of the data absence in the DB or some other DB error",
+    }
+  },
+  dbError: {
+    ERR_LOGIN_USER_PASSWORD_NO_MATCH: {
+      code : "90001",
+      message : "wrong password",
+      internalDescription: "When the user tried to delete an gross there was no error and delete was unsuccessful this may be because of the data absence in the DB or some other DB error",
+    }
+  },
+  dbError: {
+    ERR_LOGIN_STUDENT_PASSWORD_NO_MATCH: {
+      code : "40001",
+      message : "password doesnt match",
+      internalDescription: "When the password doesnt match with the rollnum ",
+    }
+  },
+  dbError: {
+    ERR_LOGIN_EMPLOYEE_PASSWORD_NO_MATCH: {
+      code : "80001",
+      message : "password doesnt match",
+      internalDescription: "When the password doesnt match with the empid ",
+    }
+  },
+  dbError: {
+    ERR_LOGIN_EMP_PASSWORD_NO_MATCH: {
+      code : "80002",
+      message : "password doesnt match",
+      internalDescription: "When the password doesnt match with the empid ",
+    }
+  },
+  dbError: {
+    ERR_LOGIN_STU_PASSWORD_NO_MATCH: {
+      code : "80003",
+      message : "password doesnt match",
+      internalDescription: "When the password doesnt match with the empid ",
+    }
+  },
+
 
   //
   // INTERNAL SERVER ERRORS
@@ -83,6 +126,149 @@ const errList = {
   // call returned error or failed.
   //
   internalError: {
+    USER_REGISTRATION_UNSUCCESSFUL:{
+      code : "60001",
+      message :errMsg.INTERNAL_SERVER_ERROR,
+      internalDescription : "there was error in getting the list of users in the users list route"
+    
+    },
+
+    USER_LIST_REGISTRATION_UNSUCCESSFUL:{
+      code : "60002",
+      message :errMsg.INTERNAL_SERVER_ERROR,
+      internalDescription : "there was error in getting the list of users in the users list route"
+    
+    },
+    GROSS_REGISTRATION_UNSUCCESSFUL:{
+      code : "70001",
+      message :errMsg.INTERNAL_SERVER_ERROR,
+      internalDescription : "there was error in getting the list of grosseries in the grosserey list route"
+    
+    },
+
+    GROSS_LIST_REGISTRATION_UNSUCCESSFUL:{
+
+      code : "70002",
+      message : errMsg.INTERNAL_SERVER_ERROR,
+      internalDescription: "there was error in getting the list of grosseries in the grosserey list route"
+  },
+  GROSS_UPDATE_REGISTRATION_UNSUCCESSFUL:{
+    code : "70003",
+    message :errMsg.INTERNAL_SERVER_ERROR,
+    internalDescription : "there was error in getting the list of grosseries in the grosserey list route"
+  
+  },
+
+  GROSS_DELETE_REGISTRATION_UNSUCCESSFUL:{
+    code : "70004",
+    message :errMsg.INTERNAL_SERVER_ERROR,
+    internalDescription : "there was error in getting the list of grosseries in the grosserey list route"
+  
+  },
+
+
+  STUDENT_REGISTRATION_UNSUCCESSFULL:{
+
+    code : "10001",
+    message : errMsg.INTERNAL_SERVER_ERROR,
+    internalDescription: "There was error in getting the list of student in the students list route",
+},
+STUDENT_LIST_REGISTRATION_UNSUCCESSFUL:{
+
+  code : "10002",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of student in the students list route",
+},
+STUDENT_UPDATE_REGISTRATION_UNSUCCESSFUL:{
+
+  code : "10003",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of student in the students list route",
+},
+ERR_STUDENT_GET_NUMBER_OF_STUDENTS:{
+
+  code : "10004",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of student in the students list route",
+},
+
+
+EMPLOYEE_REGISTRATION_UNSUCCESSFULL:{
+
+  code : "20001",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of employee in the employee list route",
+},
+EMPLOYEE_LIST_REGISTRATION_UNSUCCESSFULL:{
+
+  code : "20002",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of employee in the employee list route",
+},
+EMPLOYEE_DELETE_LIST_REGISTRATION_UNSUCCESSFULL:{
+
+  code : "20003",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of employee in the employee list route",
+},
+EMP_LIST_REGISTRATION_UNSUCCESSFULL:{
+
+  code : "60004",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of emp in the emp list route",
+},
+EMP_REGISTRATION_UNSUCCESSFULL:{
+
+  code : "60002",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of emp in the emp list route",
+},
+EMP_UPDATE_REGISTRATION_UNSUCCESSFUL:{
+  code : "60003",
+  message :errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription : "there was error in getting the list of emp in the emp list route"
+
+},
+STU_LIST_REGISTRATION_UNSUCCESSFULL:{
+
+  code : "60005",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of student in the stu list route",
+},
+STU_REGISTRATION_UNSUCCESSFULL:{
+
+  code : "60006",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of student in the stu list route",
+},
+DEP_LIST_REGISTRATION_UNSUCCESSFULL:{
+
+  code : "60007",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of student in the stu list route",
+},
+SUBJECTS_LIST_REGISTRATION_UNSUCCESSFULL:{
+
+  code : "60008",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of subjects in the sub list route",
+},
+MARKS_LIST_REGISTRATION_UNSUCCESSFULL:{
+
+  code : "60009",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of subjects in the sub list route",
+},
+SUBJECTS_REGISTRATION_UNSUCCESSFULL:{
+
+  code : "70007",
+  message : errMsg.INTERNAL_SERVER_ERROR,
+  internalDescription: "There was error in getting the list of subjects in the sub list route",
+},
+
+
+
+
     ERR_ORDER_LIST_QUERY_ERROR:{
 
       code : "50001",
@@ -104,7 +290,8 @@ ERR_ORDER_DELETE_FAILURE:{
       message : errMsg.INTERNAL_SERVER_ERROR,
       internalDescription: "There was error in getting the list of orders in the orders delete route",
 
-},
+}
+
   }
 
 };
